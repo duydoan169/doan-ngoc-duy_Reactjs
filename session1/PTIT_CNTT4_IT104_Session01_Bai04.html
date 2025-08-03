@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let checkParity = (input) =>{
+        if(isNaN(+input)){
+            console.log(`${input} khong phai so`);
+           return; 
+        }
+        if(input%2==0){
+            console.log(`${input} la so chan`);
+        }else{
+            console.log(`${input} la so le`);
+        }
+    }
+    let input=prompt("nhap so bat ki: ");
+    checkParity(input);
+</script>
+</html>

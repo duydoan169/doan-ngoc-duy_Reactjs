@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const products = [
+        { name: "A", price: 100, discount: 0.1, quantity: 2 },
+        { name: "B", price: 200, discount: 0.2, quantity: 1, bulkDiscount: { minQuantity: 2, extraDiscount: 0.05 } },
+        { name: "C", price: 300, discount: 0, quantity: 3, bulkDiscount: { minQuantity: 3, extraDiscount: 0.1 } }
+    ];
+    getOrderSummary=(products)=>{
+        let totalBeforeDiscount=products.reduce((sum, current) => sum+(current.price)*current.quantity, 0);
+        let totalAfterDiscount=products.reduce((sum, current)=> (current.bulkDiscount && current.quantity>=current.bulkDiscount.minQuantity) ? sum+(current.price-current.price*(current.discount+current.bulkDiscount.extraDiscount))*current.quantity : sum+(current.price-current.price*current.discount)*current.quantity, 0);
+        let details=[];
+        for (let product of products) {
+            let finalPrice=(product.bulkDiscount && product.quantity>=product.bulkDiscount.minQuantity) ? (product.price-product.price*(product.discount+product.bulkDiscount.extraDiscount)) : (product.price*(1-product.discount));
+            let quantity=product.quantity;
+            details.push({name: product.name, finalPrice: finalPrice, quantity: quantity, subTotal: finalPrice*quantity});
+        }
+        return {totalBeforeDiscount: totalBeforeDiscount, totalAfterDiscount: totalAfterDiscount, details: details};
+    }
+    console.log(getOrderSummary(products));
+</script>
+</html>

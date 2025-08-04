@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    getStudentSummary=(student)=>{
+        let {name, age, listMonhoc: subjectList}=student;
+        let subjectScores=subjectList.map(subject => subject.score);
+        let average=(subjectScores.reduce((sum, current)=>(sum+current), 0)/subjectScores.length).toFixed(2);
+        let grading;
+        if(average>=8.5){
+            grading="Hoc sinh gioi";
+        }else if(average>=7.5){
+            grading="Hoc sinh kha";
+        }else if(average>=5){
+            grading="Hoc sinh trung binh";
+        }else{
+            grading="Hoc sinh yeu";
+        }
+        subjectList.sort((a, b) =>  a.score - b.score);
+        let max=subjectList[subjectList.length-1];
+        let min=subjectList[0];
+        console.log(`${name} is ${age} years old
+Average score: ${average} -> ${grading}
+Best subject: ${max.subject} (${max.score})
+Worst subject: ${min.subject} (${min.score})`);
+    }
+    getStudentSummary({ name: "Dev", age: 20, listMonhoc: [ { subject: "Math", score: 9 }, { subject: "English", score: 7.5 }, { subject: "Physics", score: 6 }, { subject: "Literature", score: 8.5 } ] });
+</script>
+</html>

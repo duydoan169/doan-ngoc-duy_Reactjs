@@ -10,11 +10,7 @@
 </body>
 <script>
     checkElement=(arr, search)=>{
-        if(arr.includes(search)){
-            console.log("true");
-        }else{
-            console.log('false');
-        }
+        return arr.includes(search);
     }
     checkElement([1, 2, 3, 4, 5], 3);
     checkElement([1, 2, 3, 4, 5], 6);

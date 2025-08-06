@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: auto;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            margin-top: 100px;
+        }
+        button{
+            width: 75px;
+            height: 40px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input id="num1" type="text">
+        <input id="num2" type="text">
+    </div>
+    <div>
+        <button onclick="addNum()">+</button>
+        <button onclick="subtractNum()">-</button>
+        <button onclick="multiplyNum()">*</button>
+        <button onclick="divideNum()">/</button>
+        <button onclick="power()">**</button>
+        <button onclick="sqrt()">**1/2</button>
+        <button onclick="factorial()">!</button>
+    </div>
+</body>
+<script src="index.js"></script>
+</html>

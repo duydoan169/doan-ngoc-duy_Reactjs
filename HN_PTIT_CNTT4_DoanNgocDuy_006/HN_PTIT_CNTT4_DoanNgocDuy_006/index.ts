@@ -140,7 +140,7 @@ class Cinema{
         }
     }
     listAudienceBooking(audienceId: number){
-        let audienceBookings=this.bookings.filter(booking => booking.audience.id=audienceId);
+        let audienceBookings=this.bookings.filter(booking => booking.audience.id==audienceId);
         if(audienceBookings.length==0){
             console.log("Khach hang khong co don dat ve");
             return;
@@ -161,7 +161,7 @@ class Cinema{
         console.log(`phim hoat hinh: ${animationCount} phim`);
     }
     getMovieSpecialOffers(movieId: number){
-        let movie=this.movies.find(movie => movie.id=movieId);
+        let movie=this.movies.find(movie => movie.id==movieId);
         if(!movie){
             console.log("Id phim khong ton tai");
             return;

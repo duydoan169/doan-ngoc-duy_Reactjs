@@ -1,5 +1,5 @@
-import React from 'react'
-import Bai1 from '../components/PTIT_CNTT4_IT104_Session12_Bai01/ListCourses'
+import React from "react";
+import Bai1 from "../components/PTIT_CNTT4_IT104_Session12_Bai01/ListCourses";
 // import Bai2 from '../components/PTIT_CNTT4_IT104_Session12_Bai02/Calculation'
 // import Bai3 from '../components/PTIT_CNTT4_IT104_Session12_Bai03/UserInfo'
 // import Bai4 from '../components/PTIT_CNTT4_IT104_Session12_Bai04/ColorBox'
@@ -30,5 +30,5 @@ export default function App() {
       {/* Bai 9 */}
       {/* <Bai9></Bai9> */}
     </div>
-  )
+  );
 }

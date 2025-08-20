@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: rgb(83, 91, 114);
+}
+table{
+    border: none;
+    border-collapse: collapse;
+    width: 1000px;
+}
+th{
+    border-bottom: 1px solid grey;
+    height: 50px;
+}
+td{
+    border-bottom: 1px solid grey;
+    height: 70px;
+}
+.done{
+    background-color: rgb(216, 255, 216);
+    border: 1px solid green;
+    color: green;
+    width: 100px;
+    height: fit-content;
+    border-radius: 8px;
+}
+.notDone{
+    background-color: rgb(255, 221, 221);
+    border: 1px solid red;
+    color: brown;
+    width: 100px;
+    height: fit-content;
+    border-radius: 8px;
+}
+button{
+    border-radius: 5px;
+    padding: 5px;
+}
+.fix{
+    background-color: rgb(255, 235, 202);
+    color: rgb(255, 128, 0);
+    border: 1px solid rgb(255, 128, 0);
+}
+.delete{
+    background-color: rgb(255, 216, 209);
+    color: rgb(185, 10, 10);
+    border: 1px solid rgb(185, 10, 10);
+}

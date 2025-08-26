@@ -16,7 +16,7 @@ export default class ProductCard extends Component<Props> {
         if(cart.findIndex((item) => item.id==this.props.product.id)!=-1){
             cart[cart.findIndex((item) => item.id==this.props.product.id)].quantity+=1;
         }else{
-            cart.push(this.props.product);
+            cart.push({...this.props.product, quantity: 1});
         }
         localStorage.setItem("cart", JSON.stringify(cart));
         window.location.reload();

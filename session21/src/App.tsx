@@ -18,5 +18,5 @@ export default function App() {
       {/* <Bai7></Bai7> */}
       <Bai8></Bai8>
     </div>
-  )
+  );
 }

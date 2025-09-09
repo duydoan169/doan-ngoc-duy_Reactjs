@@ -1,12 +1,51 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./register.css"
+import { Link, useNavigate } from "react-router-dom";
+type UserInfo={
+  email: string,
+  password: string,
+  confirmPassword: string
+}
+type User={
+  email: string,
+  password: string,
+}
 export default function Register() {
+  const navigate = useNavigate()
+  const [userInfo, setUserInfo]=useState<UserInfo>({email: "", password: "", confirmPassword: ""});
+  const [users, setUsers]=useState<User[]>(JSON.parse(localStorage.getItem("users") || '[]'))
+  useEffect(()=>{
+    localStorage.setItem("users", JSON.stringify(users));
+  }, [users])
+  const handleChange=(e: React.ChangeEvent<HTMLInputElement>)=>{
+    const {value, name}=e.target;
+    setUserInfo({...userInfo, [name]: value});
+  }
+  const handleSubmit=(e: React.FormEvent<HTMLFormElement>)=>{
+    e.preventDefault();
+    if(userInfo.email == "" || userInfo.password == "" || userInfo.confirmPassword == ""){
+      alert("Khong duoc de trong thong tin");
+      return;
+    }
+    if(users.some((user: User) => user.email==userInfo.email)){
+      alert("Email da ton tai");
+      return;
+    }
+    if(userInfo.password != userInfo.confirmPassword){
+      alert("Mat khau va xac nhat mat khau xong giong nhau");
+      return;
+    }
+    setUsers([...users, {email: userInfo.email, password: userInfo.password}]);
+    alert("Dang ky tai khoan thanh cong");
+    setUserInfo({email: "", password: "", confirmPassword: ""});
+    navigate("/login");
+  }
   return (
     <div>
-      <form className="form">
+      <form className="form" onSubmit={handleSubmit}>
         <p className="form-title">Create account</p>
         <div className="input-container">
-          <input placeholder="Enter email" type="email" />
+          <input placeholder="Enter email" type="email" value={userInfo.email} name="email" onChange={handleChange}/>
           <span>
             <svg
               stroke="currentColor"
@@ -24,7 +63,7 @@ export default function Register() {
           </span>
         </div>
         <div className="input-container">
-          <input placeholder="Enter password" type="password" />
+          <input placeholder="Enter password" type="password" value={userInfo.password} name="password" onChange={handleChange}/>
 
           <span>
             <svg
@@ -49,7 +88,7 @@ export default function Register() {
           </span>
         </div>
         <div className="input-container">
-          <input placeholder="Confirm password" type="password" />
+          <input placeholder="Confirm password" type="password" value={userInfo.confirmPassword} name="confirmPassword" onChange={handleChange}/>
 
           <span>
             <svg
@@ -79,7 +118,7 @@ export default function Register() {
 
         <p className="signup-link">
           Already have an account?
-          <a href=""> Login</a>
+          <Link to={"/login"}> Login</Link>
         </p>
       </form>
     </div>

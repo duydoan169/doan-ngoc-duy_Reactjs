@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./login.css"
 import { Link, useNavigate } from "react-router-dom";
+
 type User={
   email: string,
   password: string,

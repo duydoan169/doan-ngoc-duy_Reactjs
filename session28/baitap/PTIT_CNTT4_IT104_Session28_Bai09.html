@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
         const numbers = [1, 2, 3, 4, 5, 6];
-        function myMap(numbers, callback){
-            callback(numbers);
-        }
-        function callback(numbers){
-            const result=[];
-            for(let i=0; i<numbers.length; i++){
-                result.push(numbers[i]*2);
+
+        function myMap(arr, callback) {
+            const result = [];
+            for (let i = 0; i < arr.length; i++) {
+                result.push(callback(arr[i], i, arr));
             }
-            console.log(`[${result.join(", ")}]`);
+            return result;
         }
-        myMap(numbers, callback)
+
+        function callback(num) {
+            return num * 2;
+        }
+
+        const doubled = myMap(numbers, callback);
+        console.log(doubled);
     </script>
 </body>
+
 </html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function func1(callback){
+            setTimeout(()=>{
+                console.log("Task 1 duoc thuc thi");
+                callback();
+            }, 1000)
+        }
+        function func2(callback){
+            setTimeout(()=>{
+                console.log("Task 2 duoc thuc thi");
+                callback();
+            }, 1500)
+        }
+        function func3(){
+            setTimeout(()=>{
+                console.log("Task 3 duoc thuc thi! Hoan thanh");
+            }, 2000)
+        }
+        func1(()=>{
+            func2(()=>{
+                func3();
+            })
+        })
+    </script>
+</body>
+</html>

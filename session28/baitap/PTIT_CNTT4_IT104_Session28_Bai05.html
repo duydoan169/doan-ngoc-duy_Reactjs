@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function checkCondition(value, display){
+            setTimeout(()=>{
+                display(value);
+            }, 1000)
+        }
+        function display(value){
+            if(value){
+                console.log("Dieu kien tra ve: true");
+            }else{
+                console.log("Dieu kien tra ve: false");
+            }
+        }
+        
+        checkCondition(true, display)
+    </script>
+</body>
+</html>

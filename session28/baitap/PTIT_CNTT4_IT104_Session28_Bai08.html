@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const numbers = [1, 2, 2, 3, 4, 5, 6];
+        function myFilter(numbers, filterValue, callback){
+            callback(numbers, filterValue);
+        }
+        function callback(numbers, filterValue){
+            const result=[];
+            for(let i=0; i<numbers.length; i++){
+                if(numbers[i]==filterValue){
+                    result.push(filterValue);
+                }
+            }
+            console.log(`[${result}]`);
+        }
+        myFilter(numbers, 2, callback);
+        myFilter(numbers, 10, callback);
+    </script>
+</body>
+</html>

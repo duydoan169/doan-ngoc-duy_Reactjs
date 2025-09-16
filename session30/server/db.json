@@ -12,8 +12,13 @@
     },
     {
       "name": "nau com",
-      "isCompleted": false,
+      "isCompleted": true,
       "id": 3
+    },
+    {
+      "name": "lập trình C",
+      "isCompleted": true,
+      "id": 4
     }
   ]
 }

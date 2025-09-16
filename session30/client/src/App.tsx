@@ -64,6 +64,7 @@ export default function App() {
     }
     setNewTask("");
     setError("");
+    setUpdateId(-1);
   }
   async function deleteTask(id: number){
     if(confirm("Ban co chac chan muon xoa cong viec nay?")){

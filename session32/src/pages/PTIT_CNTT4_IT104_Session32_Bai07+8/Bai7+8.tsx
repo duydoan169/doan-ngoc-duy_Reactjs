@@ -11,8 +11,8 @@ export default function Bai78() {
     <div>
       <h1>{result.isLogin ? "Dang nhap" : "Dang ky"}</h1>
       <input onChange={(e) => dispatch({type: "email", payload: e.target.value})} type="text" placeholder='Nhap email'/><br />
-      <input onChange={(e) => dispatch({type: "password", payload: e.target.value})} type="text" placeholder='Nhap mat khau'/><br />
-      <button onClick={()=>result.isLogin ? dispatch({type: "login"}) : dispatch({type: "signup"})}>{result.isLogin ? "Dang nhap" : "Dang ky"}</button>
+      <input style={{marginTop: "10px"}} onChange={(e) => dispatch({type: "password", payload: e.target.value})} type="text" placeholder='Nhap mat khau'/><br />
+      <button style={{display: "flex", justifyContent: "center", alignItems: "center", width: "170px", height: "30px", backgroundColor: "dodgerblue", color: "white", border: "none", borderRadius: "5px", marginTop: "10px"}} onClick={()=>result.isLogin ? dispatch({type: "login"}) : dispatch({type: "signup"})}>{result.isLogin ? "Dang nhap" : "Dang ky"}</button>
     </div>
   )
 }

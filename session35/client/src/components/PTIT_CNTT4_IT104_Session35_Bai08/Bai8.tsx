@@ -23,7 +23,7 @@ export default function Bai8() {
       <div>
         <h3>Email: {result.email}</h3>
         <h3>Password: {result.password}</h3>
-        <button onClick={()=>dispatch(bai8.logout())}>Logout</button>
+        <button onClick={()=>{dispatch(bai8.logout()); setUser({email: "", password: ""})}}>Logout</button>
         </div>}
     </div>
   )

@@ -36,23 +36,23 @@ const App: React.FC = () => {
   }, [])
   // Lọc danh sách công việc dựa trên state `filters`
   const filteredTasks = useMemo(() => {
-  return tasks.filter(task => {
-    const statusMatch =
-      filters.status === 'Tất cả' ||
-      (filters.status === 'Hoàn thành' && task.completed) ||
-      (filters.status === 'Chưa hoàn thành' && !task.completed);
+    return tasks.filter(task => {
+      const statusMatch =
+        filters.status === 'Tất cả' ||
+        (filters.status === 'Hoàn thành' && task.completed) ||
+        (filters.status === 'Chưa hoàn thành' && !task.completed);
 
-    const priorityMatch =
-      filters.priority === 'Tất cả' || task.priority === filters.priority;
+      const priorityMatch =
+        filters.priority === 'Tất cả' || task.priority === filters.priority;
 
-    const searchTerm = filters.searchTerm.trim().toLowerCase();
-    const searchTermMatch =
-      searchTerm === '' ||
-      task.taskName.toLowerCase().includes(searchTerm);
+      const searchTerm = filters.searchTerm.trim().toLowerCase();
+      const searchTermMatch =
+        searchTerm === '' ||
+        task.taskName.toLowerCase().includes(searchTerm);
 
-    return statusMatch && priorityMatch && searchTermMatch;
-  });
-}, [tasks, filters]);
+      return statusMatch && priorityMatch && searchTermMatch;
+    });
+  }, [tasks, filters]);
 
   return (
     <div className="task-manager-container">
